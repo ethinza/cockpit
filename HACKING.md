@@ -1,8 +1,10 @@
 # Hacking on Cockpit
 
+The steps mentioned here are executed on CENTOS 7.
+
 Here's where to get the code:
 
-    $ git clone https://github.com/cockpit-project/cockpit
+    $ git clone https://github.com/ethinza/cockpit
     $ cd cockpit/
 
 The remainder of the commands assume you're in the top level of the
