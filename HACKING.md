@@ -1,4 +1,4 @@
-# Hacking on Cockpit
+# Hacking on Ethinza forked Cockpit
 
 The steps mentioned here are executed on CENTOS 7.
 
@@ -16,13 +16,7 @@ Cockpit uses Node.js during development. Node.js is not used at runtime.
 To make changes on Cockpit you'll want to install Node.js, NPM and
 various development dependencies like Webpack.
 
-On Debian or Ubuntu:
-
-    $ sudo apt-get install nodejs npm
-
-On Fedora:
-
-    $ sudo dnf install nodejs npm
+    $ sudo yum install nodejs npm
 
 And lastly get Webpack and the development dependencies:
 
@@ -32,29 +26,9 @@ And lastly get Webpack and the development dependencies:
 When relying on CI to run the test suite, this is all that is
 necessary to work on the JavaScript components of Cockpit.
 
-To actually build the Cockpit binaries themselves from source
-(including to run the integration tests locally), you will need
-additional header files and other components. Check
-`tools/cockpit.spec` for the concrete Fedora build dependencies.
+In addition, some dependencies are required:
 
-Note that `tools/cockpit.spec` is a template filled in by
-`tools/gen-spec-dependencies`, and cannot be directly parsed by dnf.
-The following should work in a fresh Git clone:
-
-    $ sudo dnf install dnf-utils
-    $ TEMPFILE=$(mktemp -u --suffix=.spec) && \
-      sed 's/%{npm-version:.*}/0/' tools/cockpit.spec >$TEMPFILE && \
-      sudo dnf builddep --spec $TEMPFILE && \
-      rm $TEMPFILE
-
-In addition, for testing, the following dependencies are required:
-
-    $ sudo dnf install curl expect \
-        libvirt libvirt-client libvirt-daemon libvirt-python \
-        python python-libguestfs python-lxml libguestfs-xfs \
-        python3 libvirt-python3 \
-        libguestfs-tools qemu qemu-kvm rpm-build rsync xz \
-        chromium-headless
+    $ sudo yum-builddep
 
 ## Building
 
