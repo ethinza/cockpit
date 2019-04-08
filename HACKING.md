@@ -54,7 +54,7 @@ to build everything.  Cockpit has a single non-recursive Makefile.  You can
 only run `make` from the top-level and it will always rebuild the whole
 project.
 
-You can list which Cockpit packages are installed using the following command, and you should see pinger listed among them:
+You can list which Cockpit packages are installed using the following command, and you should see "storageC" listed among them:
 
     $ cockpit-bridge --packages
 
