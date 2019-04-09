@@ -1,0 +1,15 @@
+{
+  "version": 0,
+  "priority": 10,
+  "requires": {
+       "cockpit": "122"
+  },
+  "menu": {
+     "index": {
+        "label": "storageC",
+        "path": "index.html",
+        "order": 60
+     }
+  },
+  "content-security-policy": "default-src 'self' blob:;img-src 'self' data:;frame-src 'self' data:;"
+}
