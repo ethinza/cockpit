@@ -66,6 +66,7 @@
 # cockpit-machines-ovirt is RHEL 7 and Fedora < 30 only
 %if (0%{?fedora} && 0%{?fedora} < 30) || (0%{?rhel} >= 7 && 0%{?rhel} < 8)
 %define build_ovirt 1
+#define build_storagec 1
 %endif
 
 %if 0%{?rhel} >= 8
@@ -282,6 +283,14 @@ rm -rf %{buildroot}/%{_datadir}/cockpit/ovirt
 touch ovirt.list
 %endif
 
+%if 0%{?build_storagec}
+echo '%dir %{_datadir}/cockpit/storagec' > storagec.list
+find %{buildroot}%{_datadir}/cockpit/storagec -type f >> storagec.list
+%else
+rm -rf %{buildroot}/%{_datadir}/cockpit/storagec
+touch storagec.list
+%endif
+
 echo '%dir %{_datadir}/cockpit/selinux' > selinux.list
 find %{buildroot}%{_datadir}/cockpit/selinux -type f >> selinux.list
 
@@ -339,7 +348,7 @@ rm -f %{buildroot}%{_datadir}/metainfo/cockpit.appdata.xml
 
 # when not building optional packages, remove their files
 %if 0%{?build_optional} == 0
-for pkg in apps dashboard docker kubernetes machines ovirt packagekit pcp playground storaged; do
+for pkg in apps dashboard docker kubernetes machines ovirt packagekit pcp playground storagec storaged; do
     rm -rf %{buildroot}/%{_datadir}/cockpit/$pkg
 done
 # files from -tests
@@ -737,6 +746,27 @@ Requires: libvirt-client
 The Cockpit components for managing oVirt virtual machines.
 
 %files -n cockpit-machines-ovirt -f ovirt.list
+
+%endif
+
+%if 0%{?build_storagec}
+
+%package -n cockpit-storagec
+BuildArch: noarch
+Summary: Cockpit user interface for storageC
+Requires: cockpit-bridge >= %{required_base}
+Requires: cockpit-system >= %{required_base}
+%if 0%{?rhel} == 7
+Requires: libvirt
+%else
+Requires: (libvirt-daemon-kvm or libvirt)
+%endif
+Requires: libvirt-client
+
+%description -n cockpit-storagec
+The Cockpit components for managing storageC virtual machines.
+
+%files -n cockpit-storagec -f storagec.list
 
 %endif
 

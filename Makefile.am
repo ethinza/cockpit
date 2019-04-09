@@ -164,6 +164,7 @@ WEBPACK_PACKAGES = \
 	shell \
 	sosreport \
 	ssh \
+	storagec \
 	storaged \
 	subscriptions \
 	systemd \

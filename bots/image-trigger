@@ -27,7 +27,6 @@ REFRESH = {
     "debian-testing": { },
     "debian-stable": { },
     "fedora-29": { },
-    "fedora-30": { },
     "fedora-atomic": { },
     "fedora-testing": { },
     "fedora-i386": { },
@@ -42,6 +41,7 @@ REFRESH = {
     'rhel-8-0': { },
     'rhel-atomic': { },
     "selenium": { "refresh-days": 30 },
+    "storagec": { "refresh-days": 120 },
 }
 
 import argparse

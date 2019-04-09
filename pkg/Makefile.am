@@ -31,6 +31,15 @@ metainfo_DATA = pkg/sosreport/org.cockpit-project.cockpit-sosreport.metainfo.xml
 pixmapsdir = ${datarootdir}/pixmaps
 pixmaps_DATA = pkg/sosreport/cockpit-sosreport.png
 
+storagecdir = $(pkgdatadir)/storagec
+storagec_DATA = \
+	dist/storagec/install.sh \
+	$(NULL)
+
+dist/storagec/install.sh: pkg/ovirt/install.sh
+	$(COPY_RULE)
+
+
 EXTRA_DIST += \
 	dist/playground/extra.de.po \
 	pkg/playground/extra.de.po \
@@ -42,6 +51,7 @@ EXTRA_DIST += \
 	$(ovirt_DATA) \
 	$(metainfo_DATA) \
 	$(pixmaps_DATA) \
+	$(storagec_DATA) \
 	$(NULL)
 
 if WITH_GOLANG

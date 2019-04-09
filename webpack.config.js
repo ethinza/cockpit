@@ -109,6 +109,10 @@ var info = {
             "sosreport/sosreport.css",
         ],
 
+        "storagec/storagec": [
+            "storagec/storagec.js",
+        ],
+
         "storaged/storage": [
             "storaged/devices.jsx"
         ],
@@ -229,6 +233,8 @@ var info = {
 
         "sosreport/index.html",
         "sosreport/sosreport.png",
+
+        "storagec/index.html",
 
         "storaged/index.html",
         "storaged/images/storage-array.png",
