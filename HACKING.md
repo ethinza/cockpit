@@ -28,7 +28,7 @@ necessary to work on the JavaScript components of Cockpit.
 
 In addition, some dependencies are required:
 
-    $ sudo yum-builddep
+    $ sudo yum-builddep cockpit
 
 ## Building
 
