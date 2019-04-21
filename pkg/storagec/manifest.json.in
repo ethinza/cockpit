@@ -1,15 +1,19 @@
 {
-  "version": 0,
-  "priority": 10,
-  "requires": {
-       "cockpit": "122"
-  },
-  "menu": {
-     "index": {
-        "label": "storageC",
-        "path": "index.html",
-        "order": 60
-     }
-  },
-  "content-security-policy": "default-src 'self' blob:;img-src 'self' data:;frame-src 'self' data:;"
+    "version": 0,
+    "name": "storageC",
+    "priority": 7,
+    "requires": {
+        "cockpit": "137"
+    },
+
+    "dashboard": {
+        "index": {
+            "label": "storageC",
+            "order": 12,
+            "icon": "pficon-enterprise",
+            "icon": "pficon-zone"
+        }
+    },
+
+    "content-security-policy": "default-src 'self' blob:;img-src 'self' data:;frame-src 'self' data:;"
 }

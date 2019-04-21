@@ -235,6 +235,7 @@ var info = {
         "sosreport/sosreport.png",
 
         "storagec/index.html",
+        "storagec/logo.png",
 
         "storaged/index.html",
         "storaged/images/storage-array.png",
