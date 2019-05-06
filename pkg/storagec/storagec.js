@@ -17,9 +17,40 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
-export var storagec = { };
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById("btnPrepare").addEventListener("click", prepareHandler);
+    document.getElementById("btnDeploy").addEventListener("click", deployHandler);
 
-storagec.debug = function storagec_debug() {
-    if (window.debugging == "all" || window.debugging == "storagec")
-        console.debug.apply(console, arguments);
-};
+    main();
+});
+
+function main() {
+    // Initialization work goes here.
+}
+
+function prepareHandler() {
+    var x = document.createElement("TABLE");
+    x.setAttribute("id", "tblPrepare");
+    document.body.appendChild(x);
+
+    var y = document.createElement("TR");
+    y.setAttribute("id", "trOk");
+    document.getElementById("tblPrepare").appendChild(y);
+
+    var z = document.createElement("TD");
+    z.setAttribute("id", "tdOk");
+    var img = document.createElement("IMG");
+    img.setAttribute("src", "ok.png");
+    img.setAttribute("alt", "ok");
+    z.appendChild(img);
+    var t = document.createTextNode("Check FQDN");
+    z.appendChild(t);
+    document.getElementById("trOk").appendChild(z);
+
+    alert("prepare click");
+}
+
+function deployHandler() {
+    // On click Code
+    alert("deploy click");
+}

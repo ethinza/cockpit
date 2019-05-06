@@ -8,51 +8,19 @@
 
     <script src="../base1/jquery.js"></script>
     <script src="../base1/cockpit.js"></script>
-    <script src="storagec.js"></script>
 
-    <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-    </style>
 </head>
 <body>
-
-<!-- div class="split right">
-    <div class="centered">
-        <img src="img_avatar.png" alt="Avatar man" />
-        <h2>John Doe</h2>
-        <p>Some text here too.</p>
-    </div>
-</div -->
 
     <div class="container-fluid" style='max-width: 600px'>
 
         <table class="cockpit-form-table">
-            <!-- tr>
-                <td width="100">&nbsp;</td>
-                <td><img src="log.png" /></td>
-            </tr -->
             <tr>
                 <td width="100">&nbsp;</td>
-            </tr>
-            <tr>
-                <td width="100">&nbsp;</td>
+                <td><a href="http://www.ethinza.com" target="_blank"><img src="logo.png" /></a></td>
+                <td width="25">&nbsp;</td>
                 <td>
-                    <bold>storageC - HyperConvergence in simple steps by <a href="http://www.ethinza.com" target="_blank">Ethinza Inc.</a></bold>
+                    <b>storageC - HyperConvergence in simple steps by <a href="http://www.ethinza.com" target="_blank">Ethinza Inc.</a></b>
                 </td>
             </tr>
             <tr>
@@ -60,7 +28,7 @@ tr:nth-child(even) {
             </tr>
         </table>
 
-        <table class="cockpit-form-table">
+        <!-- table class="cockpit-form-table">
             <tr style="border: 1px">
                 <td width="100">&nbsp;</td>
                 <td><label class="control-label" for="address">Address</label></td>
@@ -71,18 +39,60 @@ tr:nth-child(even) {
                 <td><button class="btn btn-default btn-primary" id="ping">Ping</button></td>
                 <td><span id="result"></span></td>
             </tr>
+        </table -->
+
+        <table class="cockpit-form-table">
+            <tr>
+                <td width="100">&nbsp;</td>
+                <td width="250"><button class="btn btn-default btn-primary" id="btnPrepare">Prepare</button></td>
+                <td width="250"><button class="btn btn-default btn-primary" id="btnDeploy">Deploy</button></td>
+            </tr>
+            <tr>
+                <td width="100">&nbsp;</td>
+                <td><span id="result"></span></td>
+            </tr>
         </table>
-        <p>
-	        <pre id="output"></pre>
-        </p>
+
+
+        <table class="cockpit-form-table">
+            <tr>
+                <td width="100">&nbsp;</td>
+                <!-- td align="center">
+                    <svg height="30" width="30">
+                        <circle cx="15" cy="15" r="10" stroke="green" stroke-width="0" fill="green"/>
+                    </svg>
+                </td -->
+                <td width="250"><img src="ok.png" />Check FQDN</td>
+                <td width="250"><img src="error.png" />Check oVirt</td>
+            </tr>
+            <tr>
+                <td width="100">&nbsp;</td>
+            </tr>
+        </table>
+
+        <p><pre id="preOutput"></pre></p>
+
     </div>
 
-    <script>
+    <script src="storagec.js"></script>
+
+    <!--- script>
         var address = $("#address");
         var output = $("#output");
         var result = $("#result");
 
-        $("#ping").on("click", ping_run);
+        $("#prepare").on("click", do_prepare);
+        $("#deploy").on("click", do_deploy);
+
+        function do_prepare()
+        {
+            output.append(document.createTextNode("Starting preparation..."));
+        }
+
+        function do_deploy()
+        {
+            output.append(document.createTextNode("Starting deployment..."));
+        }
 
         function ping_run() {
             var proc = cockpit.spawn(["ping", "-c", "4", address.val()]);
@@ -110,6 +120,6 @@ tr:nth-child(even) {
         function ping_output(data) {
             output.append(document.createTextNode(data));
         }
-    </script>
+    </script --->
 </body>
 </html>

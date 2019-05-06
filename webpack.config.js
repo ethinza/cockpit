@@ -236,6 +236,9 @@ var info = {
 
         "storagec/index.html",
         "storagec/logo.png",
+        "storagec/ok.png",
+        "storagec/error.png",
+        "storagec/deploy.html",
 
         "storaged/index.html",
         "storaged/images/storage-array.png",
