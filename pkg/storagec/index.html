@@ -36,6 +36,11 @@
             </tr>
             <tr>
                 <td width="100">&nbsp;</td>
+                <td align="center">
+                    <svg height="30" width="30">
+                        <circle cx="15" cy="15" r="10" stroke="green" stroke-width="0" fill="green"/>
+                    </svg>
+                </td>
                 <td><button class="btn btn-default btn-primary" id="ping">Ping</button></td>
                 <td><span id="result"></span></td>
             </tr>
@@ -44,7 +49,7 @@
         <table class="cockpit-form-table">
             <tr>
                 <td width="100">&nbsp;</td>
-                <td width="250"><button class="btn btn-default btn-primary" id="btnPrepare">Prepare</button></td>
+                <td width="250"><button class="btn btn-default btn-primary" id="btnPrepare">Verify</button></td>
                 <td width="250"><button class="btn btn-default btn-primary" id="btnDeploy">Deploy</button></td>
             </tr>
             <tr>
@@ -57,11 +62,6 @@
         <table class="cockpit-form-table">
             <tr>
                 <td width="100">&nbsp;</td>
-                <!-- td align="center">
-                    <svg height="30" width="30">
-                        <circle cx="15" cy="15" r="10" stroke="green" stroke-width="0" fill="green"/>
-                    </svg>
-                </td -->
                 <td width="250"><img src="ok.png" />Check FQDN</td>
                 <td width="250"><img src="error.png" />Check oVirt</td>
             </tr>
@@ -70,7 +70,7 @@
             </tr>
         </table>
 
-        <p><pre id="preOutput"></pre></p>
+        <p><pre id="output" max-height="20%"></pre></p>
 
     </div>
 
