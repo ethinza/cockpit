@@ -1,7 +1,7 @@
 /*
  * This file is part of Cockpit.
  *
- * Copyright (C) 2019 Ethinza Inc.
+ * Copyright (C) 2019 Ethinza Inc
  *
  * Cockpit is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published by
@@ -17,8 +17,15 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
+// Content and logic of this file is highly influenced by following blog post:
+// http://www.chrisj.cloud/?q=node/8
+
 import cockpit from "cockpit";
 import $ from "jquery";
+import Config, { STORAGEC_EXE } from "./config.js";
+
+var output = $("#output");
+var result = $("#result");
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("btnPrepare").addEventListener("click", prepareHandler);
@@ -29,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function main() {
     // Initialization work goes here.
+    output.text("Trying helper " + STORAGEC_EXE);
 }
 
 function prepareHandler() {
@@ -118,17 +126,46 @@ function checkFqdn() {
     hostsFile.read().done(function(text) {
         if (text) {
             var count = 0;
-            var output = $("#output");
-            output.empty();
+            // output.empty();
 
             text.split("\n").forEach(function(line) {
                 ++count;
                 output.append(document.createTextNode(count + ": "));
                 line.split(" ").forEach(function(hosts) {
                     output.append(document.createTextNode(hosts + "  "));
+                    Config.HostName = hosts;
                 });
                 output.append(document.createTextNode("\n"));
             });
         }
     });
+
+    helperRun();
+}
+
+function helperRun() {
+    output.text("About to execute helper " + Config.HelperExe);
+
+    var proc = cockpit.spawn([Config.HelperExe]);
+
+    proc.done(switchzSuccess);
+    proc.stream(switchzOutput);
+    proc.fail(switchzFail);
+
+    result.empty();
+    output.empty();
+}
+
+function switchzSuccess() {
+    result.css("color", "green");
+    result.text("success");
+}
+
+function switchzFail() {
+    result.css("color", "red");
+    result.text("fail");
+}
+
+function switchzOutput(data) {
+    output.append(document.createTextNode(data));
 }
