@@ -22,7 +22,17 @@ And lastly get Webpack and the development dependencies:
 
     $ sudo npm install -g webpack
     $ npm install
-    $ npm i material-components-web
+
+## Build the Material Design lite source code.
+    $ git clone https://github.com/google/material-design-lite.git
+Go into the newly created folder containing the source code.
+    $ cd material-design-lite
+Install necessary dependencies.
+    $ sudo npm install -g gulp
+Build a production version of the components.
+    $ gulp
+
+Replace content of ~cockpit/pkg/graviton/mdl with 'dist' from material design output.
 
 When relying on CI to run the test suite, this is all that is
 necessary to work on the JavaScript components of Cockpit.
