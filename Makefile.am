@@ -151,6 +151,7 @@ WEBPACK_PACKAGES = \
 	apps \
 	dashboard \
 	docker \
+	graviton \
 	kdump \
 	kubernetes \
 	machines \
@@ -164,7 +165,6 @@ WEBPACK_PACKAGES = \
 	shell \
 	sosreport \
 	ssh \
-	storagec \
 	storaged \
 	subscriptions \
 	systemd \

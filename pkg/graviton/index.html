@@ -1,10 +1,10 @@
 <head>
-    <title>storageC by Ethinza Inc.</title>
+    <title>Graviton by Ethinza Inc</title>
 
     <meta charset="utf-8">
 
     <link href="../base1/cockpit.css" type="text/css" rel="stylesheet">
-    <link href="storagec.css" type="text/css" rel="stylesheet" id="term-style">
+    <link href="graviton.css" type="text/css" rel="stylesheet" id="term-style">
 
     <script src="../base1/jquery.js"></script>
     <script src="../base1/cockpit.js"></script>
@@ -20,7 +20,7 @@
                 <td><a href="http://www.ethinza.com" target="_blank"><img src="logo.png" /></a></td>
                 <td width="25">&nbsp;</td>
                 <td>
-                    <b>storageC 1.0 - Convergence in simple steps by <a href="http://www.ethinza.com" target="_blank">Ethinza Inc</a></b>
+                    <b>graviton 1.0 - Infrastructure in simple steps by <a href="http://www.ethinza.com" target="_blank">Ethinza Inc</a></b>
                 </td>
             </tr>
             <tr>
@@ -46,6 +46,21 @@
             </tr>
         </table -->
 
+        <form action="#" method="post" class="volumeForm" id="volumeForm">
+            <fieldset>
+                <legend>Volume Type: Select Volume Type</legend>
+
+                <p>Volume type:&nbsp;
+                    <label><input type="radio" name="size" value="1" checked="checked" /> Gluster</label>
+                    <label><input type="radio" name="size" value="2" /> Ceph</label>
+                </p>
+
+                <p>
+                    <label>Host IP addresses: <input type="text" name="ip" class="num" value="3"/></label>
+                </p>
+            </fieldset>
+        </form>
+
         <table class="cockpit-form-table">
             <tr>
                 <td width="100">&nbsp;</td>
@@ -65,7 +80,7 @@
 
     </div>
 
-    <script src="storagec.js"></script>
+    <script src="graviton.js"></script>
 
     <!--- script>
         var address = $("#address");
@@ -88,7 +103,7 @@
         function ping_run() {
             var proc = cockpit.spawn(["ping", "-c", "4", address.val()]);
 
-            storagec.debug("running ping for ", address.val());
+            graviton.debug("running ping for ", address.val());
 
             proc.done(ping_success);
             proc.stream(ping_output);

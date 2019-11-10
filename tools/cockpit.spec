@@ -63,10 +63,12 @@
 %endif
 %endif
 
+# build graviton package for all
+%define build_graviton 1
+
 # cockpit-machines-ovirt is RHEL 7 and Fedora < 30 only
 %if (0%{?fedora} && 0%{?fedora} < 30) || (0%{?rhel} >= 7 && 0%{?rhel} < 8)
 %define build_ovirt 1
-#define build_storagec 1
 %endif
 
 %if 0%{?rhel} >= 8
@@ -283,12 +285,12 @@ rm -rf %{buildroot}/%{_datadir}/cockpit/ovirt
 touch ovirt.list
 %endif
 
-%if 0%{?build_storagec}
-echo '%dir %{_datadir}/cockpit/storagec' > storagec.list
-find %{buildroot}%{_datadir}/cockpit/storagec -type f >> storagec.list
+%if 0%{?build_graviton}
+echo '%dir %{_datadir}/cockpit/graviton' > graviton.list
+find %{buildroot}%{_datadir}/cockpit/graviton -type f >> graviton.list
 %else
-rm -rf %{buildroot}/%{_datadir}/cockpit/storagec
-touch storagec.list
+rm -rf %{buildroot}/%{_datadir}/cockpit/graviton
+touch graviton.list
 %endif
 
 echo '%dir %{_datadir}/cockpit/selinux' > selinux.list
@@ -348,7 +350,7 @@ rm -f %{buildroot}%{_datadir}/metainfo/cockpit.appdata.xml
 
 # when not building optional packages, remove their files
 %if 0%{?build_optional} == 0
-for pkg in apps dashboard docker kubernetes machines ovirt packagekit pcp playground storagec storaged; do
+for pkg in apps dashboard docker graviton kubernetes machines ovirt packagekit pcp playground storaged; do
     rm -rf %{buildroot}/%{_datadir}/cockpit/$pkg
 done
 # files from -tests
@@ -749,24 +751,24 @@ The Cockpit components for managing oVirt virtual machines.
 
 %endif
 
-%if 0%{?build_storagec}
+%if 0%{?build_graviton}
 
-%package -n cockpit-storagec
+%package -n cockpit-graviton
 BuildArch: noarch
-Summary: Cockpit user interface for storageC
+Summary: Cockpit user interface for graviton
 Requires: cockpit-bridge >= %{required_base}
 Requires: cockpit-system >= %{required_base}
-%if 0%{?rhel} == 7
-Requires: libvirt
-%else
-Requires: (libvirt-daemon-kvm or libvirt)
-%endif
-Requires: libvirt-client
+#%if 0%{?rhel} == 7
+#Requires: libvirt
+#%else
+#Requires: (libvirt-daemon-kvm or libvirt)
+#%endif
+#Requires: libvirt-client
 
-%description -n cockpit-storagec
-The Cockpit components for managing storageC virtual machines.
+%description -n cockpit-graviton
+The Cockpit user interface for graviton.
 
-%files -n cockpit-storagec -f storagec.list
+%files -n cockpit-graviton -f graviton.list
 
 %endif
 

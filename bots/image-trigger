@@ -30,6 +30,7 @@ REFRESH = {
     "fedora-atomic": { },
     "fedora-testing": { },
     "fedora-i386": { },
+    "graviton": { "refresh-days": 120 },
     "ipa": { "refresh-days": 120 },
     "ubuntu-1804": { },
     "ubuntu-stable": { },
@@ -41,7 +42,6 @@ REFRESH = {
     'rhel-8-0': { },
     'rhel-atomic': { },
     "selenium": { "refresh-days": 30 },
-    "storagec": { "refresh-days": 120 },
 }
 
 import argparse

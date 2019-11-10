@@ -1,6 +1,6 @@
 {
     "version": 0,
-    "name": "storageC",
+    "name": "graviton",
     "priority": 7,
     "requires": {
         "cockpit": "137"
@@ -8,7 +8,7 @@
 
     "dashboard": {
         "index": {
-            "label": "storageC",
+            "label": "graviton",
             "order": 12,
             "icon": "pficon-enterprise",
             "icon": "pficon-zone"

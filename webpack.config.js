@@ -19,6 +19,10 @@ var info = {
             "docker/console.js",
         ],
 
+        "graviton/graviton": [
+            "graviton/graviton.js",
+        ],
+
         "kdump/kdump": [
             "kdump/kdump.js",
             "kdump/kdump.css",
@@ -109,10 +113,6 @@ var info = {
             "sosreport/sosreport.css",
         ],
 
-        "storagec/storagec": [
-            "storagec/storagec.js",
-        ],
-
         "storaged/storage": [
             "storaged/devices.jsx"
         ],
@@ -193,6 +193,11 @@ var info = {
         "docker/index.html",
         "docker/images/drive-harddisk-symbolic.svg",
 
+        "graviton/index.html",
+        "graviton/logo.png",
+        "graviton/ok.png",
+        "graviton/error.png",
+
         "kdump/index.html",
 
         "kubernetes/override.json",
@@ -233,12 +238,6 @@ var info = {
 
         "sosreport/index.html",
         "sosreport/sosreport.png",
-
-        "storagec/index.html",
-        "storagec/logo.png",
-        "storagec/ok.png",
-        "storagec/error.png",
-	"storagec/storagec",
 
         "storaged/index.html",
         "storaged/images/storage-array.png",
