@@ -23,12 +23,16 @@ And lastly get Webpack and the development dependencies:
     $ sudo npm install -g webpack
     $ npm install
 
-## Build the Material Design lite source code.
+## Build the Material Design lite source code
+(based on https://getmdl.io/components/index.html)
     $ git clone https://github.com/google/material-design-lite.git
+
 Go into the newly created folder containing the source code.
     $ cd material-design-lite
+
 Install necessary dependencies.
     $ sudo npm install -g gulp
+
 Build a production version of the components.
     $ gulp
 
