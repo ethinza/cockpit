@@ -5,7 +5,9 @@
 
     <link href="../base1/cockpit.css" type="text/css" rel="stylesheet">
     <link href="graviton.css" type="text/css" rel="stylesheet" id="term-style">
+    <link rel="stylesheet" href="./mdl/material.min.css">
 
+    <script src="./mdl/material.min.js"></script>
     <script src="../base1/jquery.js"></script>
     <script src="../base1/cockpit.js"></script>
 
@@ -64,8 +66,16 @@
         <table class="cockpit-form-table">
             <tr>
                 <td width="100">&nbsp;</td>
-                <td width="250"><button class="btn btn-default btn-primary" id="btnPrepare">Verify</button></td>
-                <td width="250"><button class="btn btn-default btn-primary" id="btnDeploy">Deploy</button></td>
+                <td width="250">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="btnPrepare">
+                        Verify
+                    </button>
+                </td>
+                <td width="250">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="btnDeploy">
+                        Deploy
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td width="100">&nbsp;</td>

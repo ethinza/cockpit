@@ -197,6 +197,11 @@ var info = {
         "graviton/logo.png",
         "graviton/ok.png",
         "graviton/error.png",
+        "graviton/mdl/material.css",
+        "graviton/mdl/material.js",
+        "graviton/mdl/material.min.css",
+        "graviton/mdl/material.min.js",
+        "graviton/mdl/material-grid.css",
 
         "kdump/index.html",
 
